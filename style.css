@@ -337,18 +337,11 @@ p:last-child { margin-bottom: 0; }
 ──────────────────────────────────────────────────────────── */
 .image-section-img > img {
   width: 100%;
-  aspect-ratio: 2 / 3;             /* mobile: tall portrait, no skew */
-  object-fit: cover;
-  object-position: center 15%;     /* keep face centred in crop */
+  height: auto;          /* let the image keep its natural proportions — no distortion */
+  object-fit: contain;   /* never crop or stretch */
   border-radius: var(--r-xl);
   box-shadow: var(--shadow-md);
   display: block;
-}
-@media (min-width: 1024px) {
-  .image-section-img > img {
-    aspect-ratio: 3 / 4;           /* desktop: slightly less tall */
-    object-position: center 10%;
-  }
 }
 
 .image-section-text { width: 100%; }
