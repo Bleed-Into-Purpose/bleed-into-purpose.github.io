@@ -324,31 +324,29 @@ p:last-child { margin-bottom: 0; }
 @media (min-width: 1024px) { .image-section-img { width: 50%; flex-shrink: 0; } }
 
 /* ── Headshot image sizing ──────────────────────────────────
-   Mobile:  fixed 280px height — prevents the stacked image
-            from being excessively tall on a narrow screen.
-   Tablet:  380px — a bit more room, still controlled.
-   Desktop: aspect-ratio 3/4 takes over — natural proportions,
-            no fixed height needed since the column constrains width.
+   Use aspect-ratio at every breakpoint — no fixed heights.
+   Fixed heights fight object-fit:cover on near-square images
+   and cause horizontal stretching on mobile.
+   aspect-ratio lets the container match the image shape exactly,
+   with object-fit:cover doing a clean centre crop inside it.
+
+   Mobile:  2/3 — tall enough to show face and shoulders clearly.
+   Tablet+: 3/4 — slightly taller portrait, matches Replit desktop.
+   The column width (50% on desktop, 100% on mobile) constrains
+   the actual rendered size, so no explicit height is ever needed.
 ──────────────────────────────────────────────────────────── */
 .image-section-img > img {
   width: 100%;
-  height: 280px;                    /* mobile: compact fixed height */
+  aspect-ratio: 2 / 3;             /* mobile: tall portrait, no skew */
   object-fit: cover;
-  object-position: center 20%;     /* keep face in frame when cropped */
+  object-position: center 15%;     /* keep face centred in crop */
   border-radius: var(--r-xl);
   box-shadow: var(--shadow-md);
   display: block;
 }
-@media (min-width: 640px) {
-  .image-section-img > img {
-    height: 380px;                  /* tablet: a bit taller */
-    object-position: center 15%;
-  }
-}
 @media (min-width: 1024px) {
   .image-section-img > img {
-    height: auto;                   /* desktop: let aspect-ratio control */
-    aspect-ratio: 3 / 4;           /* 3:4 portrait — matches image crop */
+    aspect-ratio: 3 / 4;           /* desktop: slightly less tall */
     object-position: center 10%;
   }
 }
