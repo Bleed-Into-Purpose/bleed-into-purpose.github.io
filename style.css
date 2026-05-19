@@ -278,7 +278,7 @@ p:last-child { margin-bottom: 0; }
 .hero-body {
   position: relative; z-index: 1;
   max-width: 820px; margin: 0 auto;
-  padding: 120px var(--px) 80px;
+  padding: 72px var(--px) 64px;
 }
 /* Pill badge above the headline */
 .hero-pill {
