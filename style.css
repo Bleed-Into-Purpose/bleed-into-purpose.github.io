@@ -490,6 +490,12 @@ blockquote footer, blockquote cite {
   margin: 0 auto;
 }
 .green-strip blockquote p { color: var(--fg); font-size: inherit; }
+/* Blockquote inside image-section text column — smaller, still has green border */
+.image-section-text blockquote {
+  font-size: 1.1rem;
+  padding: 20px 24px;
+  margin: 20px 0;
+}
 
 /* ═══════════════════════════════════════════════════════════
    REFLECTION PROMPTS — resources page
