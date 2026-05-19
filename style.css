@@ -316,7 +316,7 @@ p:last-child { margin-bottom: 0; }
   display: flex; flex-direction: column; gap: 48px; align-items: center;
 }
 @media (min-width: 1024px) {
-  .image-section-inner { flex-direction: row; gap: 80px; }
+  .image-section-inner { flex-direction: row; gap: 80px; align-items: flex-start; }
   .image-section-inner.reversed { flex-direction: row-reverse; }
 }
 
@@ -442,16 +442,18 @@ p:last-child { margin-bottom: 0; }
    Inside .green-strip: transparent, no border, larger text.
 ════════════════════════════════════════════════════════════ */
 blockquote {
-  font-family: var(--serif); font-size: 1.4rem; font-style: italic;
-  color: var(--fg); line-height: 1.5;
-  background: var(--secondary); border-left: 4px solid var(--primary);
-  border-radius: var(--r-lg); padding: 28px 32px; margin: 32px 0;
+  font-family: var(--serif); font-size: 1.3rem; font-style: italic;
+  color: var(--fg); line-height: 1.55;
+  background: var(--secondary);
+  border-left: 5px solid var(--primary);
+  border-radius: var(--r-lg);
+  padding: 28px 32px; margin: 32px 0;
 }
 blockquote p { color: inherit; font-size: inherit; font-family: var(--serif); font-style: italic; margin-bottom: 10px; }
 blockquote footer, blockquote cite {
   display: block; font-family: var(--sans); font-size: .75rem;
   font-style: normal; font-weight: 600; letter-spacing: .1em;
-  text-transform: uppercase; color: var(--muted-fg); margin-top: 10px;
+  text-transform: uppercase; color: var(--muted-fg); margin-top: 12px;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -462,18 +464,22 @@ blockquote footer, blockquote cite {
   background: hsla(93,14%,38%,.06);
   border-top: 1px solid hsla(93,14%,38%,.14);
   border-bottom: 1px solid hsla(93,14%,38%,.14);
-  padding: 80px var(--px); text-align: center;
+  padding: 64px var(--px);
 }
-@media (min-width: 768px) { .green-strip { padding: 96px var(--px-md); } }
+@media (min-width: 768px) { .green-strip { padding: 80px var(--px-md); } }
 .green-strip h2 { margin-bottom: 16px; }
 .green-strip p  { max-width: 560px; margin: 0 auto 32px; }
 .green-strip .cta-btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-/* Quote inside strip — remove background and border */
 .green-strip blockquote {
-  background: transparent; border-left: none; padding: 0;
-  max-width: 640px; margin: 0 auto; font-size: 1.6rem;
+  font-size: 1.5rem;
+  border-left: 6px solid var(--primary);
+  background: var(--secondary);
+  border-radius: var(--r-lg);
+  padding: 36px 40px;
+  max-width: 860px;
+  margin: 0 auto;
 }
-.green-strip blockquote p { color: var(--fg); }
+.green-strip blockquote p { color: var(--fg); font-size: inherit; }
 
 /* ═══════════════════════════════════════════════════════════
    REFLECTION PROMPTS — resources page
