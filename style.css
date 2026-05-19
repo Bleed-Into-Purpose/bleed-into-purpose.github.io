@@ -321,7 +321,17 @@ p:last-child { margin-bottom: 0; }
 }
 
 .image-section-img { width: 100%; }
-@media (min-width: 1024px) { .image-section-img { width: 50%; flex-shrink: 0; } }
+@media (min-width: 1024px) {
+  .image-section-img {
+    width: 50%;
+    flex-shrink: 0;
+    padding-top: 36px; /* aligns image top with the pill label in the adjacent text column */
+  }
+  /* Reversed layout: text is on right, image on left — same top padding needed */
+  .image-section-inner.reversed .image-section-img {
+    padding-top: 36px;
+  }
+}
 
 /* ── Headshot image sizing ──────────────────────────────────
    Use aspect-ratio at every breakpoint — no fixed heights.
