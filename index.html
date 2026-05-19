@@ -19,16 +19,14 @@
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Fixed header — transparent by default, .scrolled added by JS on scroll -->
   <header role="banner">
     <nav aria-label="Main navigation">
       <a href="index.html" class="nav-brand" aria-label="Renée Bulwin – Bleed Into Purpose, home">
         <span class="name">Renée Bulwin</span>
         <span class="tagline">Bleed Into Purpose</span>
       </a>
-      <!-- Desktop nav links (hidden on mobile via CSS) -->
       <ul class="nav-links" role="list">
-        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="index.html"  aria-current="page">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="speaking.html">Speaking</a></li>
         <li><a href="programs.html">Programs</a></li>
@@ -36,16 +34,14 @@
         <li><a href="booking.html">Booking</a></li>
         <li><a href="booking.html" class="btn-book">Book a Session</a></li>
       </ul>
-      <!-- Hamburger — visible on mobile only, toggles #nav-menu -->
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open navigation menu">
         <span></span><span></span><span></span>
       </button>
     </nav>
   </header>
 
-  <!-- Mobile overlay menu — outside header so it covers the full viewport -->
   <nav id="nav-menu" class="nav-menu" aria-label="Site pages">
-    <a href="index.html" aria-current="page">Home</a>
+    <a href="index.html"  aria-current="page">Home</a>
     <a href="about.html">About</a>
     <a href="speaking.html">Speaking</a>
     <a href="programs.html">Programs</a>
@@ -57,10 +53,7 @@
   <div class="page-content">
     <main id="main-content">
 
-      <!-- ── HERO ────────────────────────────────────────────
-           Full-bleed background image + cream overlay.
-           .hero-bg holds the image absolutely behind the text.
-      ──────────────────────────────────────────────────────── -->
+      <!-- HERO -->
       <section class="hero" aria-labelledby="hero-heading">
         <div class="hero-bg" aria-hidden="true">
           <img src="images/hero.png" alt="">
@@ -76,14 +69,12 @@
         </div>
       </section>
 
-      <!-- ── INTRO ───────────────────────────────────────────
-           Headshot left, intro text right.
-           Uses .image-section split layout from style.css.
-      ──────────────────────────────────────────────────────── -->
+      <!-- INTRO — circle headshot left, text right (matches Replit home layout) -->
       <section class="image-section white-bg fade-in" aria-labelledby="intro-heading">
         <div class="container">
           <div class="image-section-inner">
 
+            <!-- Rectangular headshot — same style as about page -->
             <div class="image-section-img">
               <img
                 src="images/renee-about.jpg"
@@ -91,6 +82,7 @@
               >
             </div>
 
+            <!-- Text -->
             <div class="image-section-text">
               <span class="section-label">Bleed Into Purpose</span>
               <h2 id="intro-heading" style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin-bottom:20px;">What I speak about isn't something I studied from the outside. It's something I lived through, carried quietly, questioned, buried, and eventually faced head-on. My journey through childhood trauma, shame, self-worth, and healing became the foundation for something much bigger than pain itself. It became purpose.</h2>
@@ -103,9 +95,7 @@
         </div>
       </section>
 
-      <!-- ── FEATURE CARDS ───────────────────────────────────
-           Four-column grid on desktop, 2-col tablet, 1-col mobile.
-      ──────────────────────────────────────────────────────── -->
+      <!-- FEATURES -->
       <section class="section-pad cream-bg fade-in" aria-labelledby="features-heading">
         <div class="container">
           <span class="section-label">What I Offer</span>
@@ -135,9 +125,7 @@
         </div>
       </section>
 
-      <!-- ── BOOK ────────────────────────────────────────────
-           Lost & Found — update purchaseLink when live.
-      ──────────────────────────────────────────────────────── -->
+      <!-- BOOK -->
       <section class="section-pad white-bg fade-in" aria-labelledby="book-heading">
         <div class="container">
           <span class="section-label">Now Available</span>
@@ -149,9 +137,7 @@
         </div>
       </section>
 
-      <!-- ── QUOTE STRIP ─────────────────────────────────────
-           Subtle sage-tinted band — .green-strip in style.css.
-      ──────────────────────────────────────────────────────── -->
+      <!-- QUOTE STRIP -->
       <div class="green-strip fade-in" role="complementary">
         <div class="container">
           <blockquote>
@@ -161,9 +147,7 @@
         </div>
       </div>
 
-      <!-- ── CTA ─────────────────────────────────────────────
-           Update mailto address when Renée has her real email.
-      ──────────────────────────────────────────────────────── -->
+      <!-- CTA -->
       <section class="section-pad cream-bg fade-in" aria-labelledby="cta-heading">
         <div class="container" style="text-align:center;max-width:640px;margin:0 auto;">
           <h2 id="cta-heading">Ready to explore a path to healing together?</h2>
@@ -176,14 +160,12 @@
       </section>
 
     </main>
-
     <footer class="site-footer" role="contentinfo">
       <div class="footer-inner">
         <div class="footer-brand">
           <span class="name">Renée Bulwin</span>
           <span class="tagline">Bleed Into Purpose</span>
           <p class="quote">"Healing begins the moment someone finally feels seen."</p>
-          <!-- Update to real email address -->
           <a href="mailto:yourname@example.com" class="footer-email">✉ yourname@example.com</a>
         </div>
         <div class="footer-nav-col">
@@ -207,13 +189,8 @@
   </div>
 
   <script>
-    // Transparent header → blurred on scroll
     const hdr = document.querySelector("header");
-    window.addEventListener("scroll", () => {
-      hdr.classList.toggle("scrolled", window.scrollY > 20);
-    }, { passive: true });
-
-    // Hamburger — toggles .open on #nav-menu, locks body scroll
+    window.addEventListener("scroll", () => { hdr.classList.toggle("scrolled", window.scrollY > 20); }, { passive: true });
     const toggle = document.querySelector(".nav-toggle");
     const menu = document.getElementById("nav-menu");
     toggle.addEventListener("click", () => {
@@ -221,22 +198,13 @@
       toggle.setAttribute("aria-expanded", String(open));
       document.body.style.overflow = open ? "hidden" : "";
     });
-    // Close menu when any nav link is clicked
     menu.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => {
-        menu.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-        document.body.style.overflow = "";
-      });
+      a.addEventListener("click", () => { menu.classList.remove("open"); toggle.setAttribute("aria-expanded","false"); document.body.style.overflow = ""; });
     });
-
-    // Fade-in on scroll — IntersectionObserver adds .visible
     const faders = document.querySelectorAll(".fade-in");
     if (faders.length) {
       const obs = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if (e.isIntersecting) { e.target.classList.add("visible"); obs.unobserve(e.target); }
-        });
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); obs.unobserve(e.target); } });
       }, { threshold: 0.1 });
       faders.forEach(f => obs.observe(f));
     }
