@@ -139,6 +139,7 @@ header nav {
   background: var(--primary); color: #fff !important;
   padding: 10px 22px; border-radius: var(--r-full);
   font-size: .875rem; font-weight: 500;
+  white-space: nowrap;
   transition: background .2s;
 }
 .nav-links .btn-book:hover { background: var(--primary-h); }
