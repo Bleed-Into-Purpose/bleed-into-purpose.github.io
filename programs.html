@@ -18,36 +18,6 @@
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
-
-  <header role="banner">
-    <nav aria-label="Main navigation">
-      <a href="index.html" class="nav-brand" aria-label="Renée Bulwin – Bleed Into Purpose, home">
-        <span class="name">Renée Bulwin</span>
-        <span class="tagline">Bleed Into Purpose</span>
-      </a>
-      <ul class="nav-links" role="list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="speaking.html">Speaking</a></li>
-        <li><a href="resources.html">Resources</a></li>
-        <li><a href="booking.html">Booking</a></li>
-        <li><a href="booking.html" class="btn-book">Book a Talk</a></li>
-      </ul>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open navigation menu">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
-  </header>
-
-  <nav id="nav-menu" class="nav-menu" aria-label="Site pages">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="speaking.html">Speaking</a>
-    <a href="resources.html">Resources</a>
-    <a href="booking.html">Booking</a>
-    <a href="booking.html" class="btn-menu">Book a Speaking Engagement</a>
-  </nav>
-
   <div class="page-content">
     <main id="main-content">
 
@@ -106,63 +76,15 @@
       </section>
 
       <!-- CUSTOM -->
-      <section class="section-pad cream-bg fade-in" aria-labelledby="custom-heading">
-        <div class="container" style="text-align:center;max-width:640px;margin:0 auto;">
-          <h2 id="custom-heading">Custom Programs Available</h2>
-          <p>Looking for something specific? I often collaborate with organizations and private groups to design custom, trauma-informed experiences for their unique community needs.</p>
-          <a href="booking.html" class="btn-primary" style="margin-top:16px;">Get in Touch</a>
-        </div>
-      </section>
+      <div id="shared-cta"
+        data-heading="Something meaningful is on the way."
+        data-body="Renée is thoughtfully designing a collection of trauma-informed workshops and healing experiences. Reach out to express your interest."
+        data-bg="cream-bg"
+        data-buttons='[{"href":"booking.html","label":"Express Your Interest","style":"primary"},{"href":"speaking.html","label":"View Speaking Topics","style":"outline"}]'>
+      </div>
 
     </main>
-    <footer class="site-footer" role="contentinfo">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <span class="name">Renée Bulwin</span>
-          <span class="tagline">Bleed Into Purpose</span>
-          <p class="quote">"Healing begins the moment the silence is broken."</p>
-          <a href="mailto:yourname@example.com" class="footer-email">✉ yourname@example.com</a>
-        </div>
-        <div class="footer-nav-col">
-          <h4>Explore</h4>
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="speaking.html">Speaking</a>
-        </div>
-        <div class="footer-nav-col">
-          <h4>Connect</h4>
-          <a href="resources.html">Resources</a>
-          <a href="booking.html">Booking</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 Renée Bulwin · Bleed Into Purpose. All rights reserved.</p>
-        <p>This content is for educational and wellness support purposes only. It is not a replacement for therapy, medical care, or crisis support. If you are in crisis, please contact the <a href="https://988lifeline.org" rel="noopener noreferrer">988 Suicide &amp; Crisis Lifeline</a> by calling or texting <a href="tel:988">988</a>.</p>
-                    <p style="margin-top:6px;"><strong>RAINN's National Sexual Assault Hotline:</strong> <a href="tel:18006564673">1-800-656-HOPE (4673)</a> · Free &amp; confidential, 24/7</p>
-      </div>
-    </footer>
   </div>
-
-  <script>
-    const hdr = document.querySelector("header");
-    window.addEventListener("scroll", () => { hdr.classList.toggle("scrolled", window.scrollY > 20); }, { passive: true });
-    const toggle = document.querySelector(".nav-toggle");
-    const menu = document.getElementById("nav-menu");
-    toggle.addEventListener("click", () => {
-      const open = menu.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", String(open));
-      document.body.style.overflow = open ? "hidden" : "";
-    });
-    menu.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => { menu.classList.remove("open"); toggle.setAttribute("aria-expanded","false"); document.body.style.overflow = ""; });
-    });
-    const faders = document.querySelectorAll(".fade-in");
-    if (faders.length) {
-      const obs = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); obs.unobserve(e.target); } });
-      }, { threshold: 0.1 });
-      faders.forEach(f => obs.observe(f));
-    }
-  </script>
+  <script src="components.js"></script>
 </body>
 </html>
