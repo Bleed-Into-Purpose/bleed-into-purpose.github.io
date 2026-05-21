@@ -46,7 +46,7 @@ const FOOTER = {
       ]
     }
   ],
-  legal: `© 2026 Renée Bulwin · Bleed Into Purpose. All rights reserved.`,
+  legal: `© ${new Date().getFullYear()} Renée Bulwin · Bleed Into Purpose. All rights reserved.`,
   disclaimer: `This content is for educational and wellness support purposes only.
     It is not a replacement for therapy, medical care, or crisis support.
     <strong>If you are in crisis, please contact the

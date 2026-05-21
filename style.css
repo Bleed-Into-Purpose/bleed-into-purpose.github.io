@@ -20,7 +20,7 @@
   --primary-h: hsl(93,14%,30%);    /* darker sage — hover state */
   --secondary: hsl(100,22%,87%);   /* light sage tint — card bg, pills */
   --muted:     hsl(38,30%,85%);    /* warm tan — dividers */
-  --muted-fg:  hsl(93,8%,45%);     /* medium grey-green — body text */
+  --muted-fg:  hsl(93,8%,32%);     /* darkened for WCAG AA contrast on cream bg */
   --border:    hsl(100,14%,82%);   /* subtle sage border */
   --card:      hsl(0,0%,100%);     /* white — card surfaces */
 
@@ -196,7 +196,7 @@ header nav {
 h1 { font-size: clamp(2.6rem, 7vw, 5rem);  font-weight: 400; margin-bottom: 24px; }
 h2 { font-size: clamp(1.8rem, 4vw, 3rem);  font-weight: 400; margin-bottom: 20px; }
 h3 { font-size: clamp(1.2rem, 2.5vw, 1.7rem); font-weight: 500; margin-bottom: 12px; }
-p  { font-size: 1rem; color: var(--muted-fg); margin-bottom: 16px; line-height: 1.8; }
+p  { font-size: 1.0625rem; color: var(--muted-fg); margin-bottom: 16px; line-height: 1.85; }
 p:last-child { margin-bottom: 0; }
 
 /* ═══════════════════════════════════════════════════════════
@@ -265,6 +265,7 @@ p:last-child { margin-bottom: 0; }
   min-height: 90vh;
   display: flex; align-items: center; justify-content: center;
   overflow: hidden; text-align: center;
+  background: hsl(93,14%,80%); /* fallback if hero image fails to load */
 }
 /* Background image fills the section */
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
