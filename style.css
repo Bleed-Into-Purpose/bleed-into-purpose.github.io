@@ -187,9 +187,7 @@ header nav {
 .nav-menu .btn-menu:hover { background: var(--primary-h); color: #fff; }
 
 /* Push page content below fixed header */
-.page-content { padding-top: 88px; }
-/* Hero pages: hero covers full viewport flush with nav — no top gap */
-.page-content:has(.hero) { padding-top: 0; }
+.page-content { padding-top: 0; } /* nav clearance handled per-section */
 
 /* ═══════════════════════════════════════════════════════════
    TYPOGRAPHY
@@ -299,8 +297,8 @@ p:last-child { margin-bottom: 0; }
    PAGE HEADER
    Used on inner pages (About, Speaking, etc.) in place of hero.
 ════════════════════════════════════════════════════════════ */
-.page-header { padding: 120px var(--px) 64px; text-align: center; }
-@media (min-width: 768px) { .page-header { padding: 140px var(--px-md) 80px; } }
+.page-header { padding: 100px var(--px) 64px; text-align: center; }
+@media (min-width: 768px) { .page-header { padding: 112px var(--px-md) 80px; } }
 .page-header h1 { max-width: 700px; margin: 0 auto 20px; }
 .page-header p  { font-size: 1.1rem; max-width: 560px; margin: 0 auto; }
 
