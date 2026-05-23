@@ -24,11 +24,15 @@ const NAV_CTA = { href: 'booking.html', label: 'Book a Talk' };
 
 // ── FOOTER CONTENT ────────────────────────────────────────
 // Edit name, quote, email, nav columns here
+// ── CONTACT EMAIL ─────────────────────────────────────────
+// Update this ONE line to change the email address across the entire site
+const CONTACT_EMAIL = 'renee@reneebulwin.com';
+
 const FOOTER = {
   name:    'Renée Bulwin',
   tagline: 'Bleed Into Purpose',
   quote:   '"Healing begins the moment the silence is broken."',
-  email:   'yourname@example.com',
+  email:   CONTACT_EMAIL,
   cols: [
     {
       heading: 'Explore',
@@ -247,7 +251,7 @@ if (ctaPlaceholder) {
   const heading = ctaPlaceholder.dataset.heading || 'Ready to explore a path to healing together?';
   const body    = ctaPlaceholder.dataset.body    || 'Whether you are looking to book a speaking engagement or simply want to connect, I would love to hear from you.';
   const bg      = ctaPlaceholder.dataset.bg      || 'cream-bg';
-  const buttons = JSON.parse(ctaPlaceholder.dataset.buttons || '[{"href":"booking.html","label":"Get in Touch","style":"primary"},{"href":"mailto:yourname@example.com","label":"Email Directly","style":"outline"}]');
+  const buttons = JSON.parse(ctaPlaceholder.dataset.buttons || '[{"href":"booking.html","label":"Get in Touch","style":"primary"},{"href":"mailto:renee@reneebulwin.com","label":"Email Directly","style":"outline"}]');
   ctaPlaceholder.outerHTML = buildCTA({ heading, body, buttons, bg });
 }
 
