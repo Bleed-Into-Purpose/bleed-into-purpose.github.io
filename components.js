@@ -152,16 +152,11 @@ function buildHeader() {
 }
 
 function buildFooter() {
-  const cols = FOOTER.cols.map(col => {
-    const links = col.links.map(l =>
-      `<a href="${l.href}">${l.label}</a>`
-    ).join('\n          ');
-    return `
-        <div class="footer-nav-col">
-          <h4>${col.heading}</h4>
-          ${links}
-        </div>`;
-  }).join('');
+  // All nav links from all cols merged into one flat list
+  const allLinks = FOOTER.cols.flatMap(col => col.links);
+  const navLinks = allLinks.map(l =>
+    `<a href="${l.href}" class="footer-nav-link">${l.label}</a>`
+  ).join('\n          ');
 
   // Crisis hotlines — two-column grid, compact
   const crisisLines = CRISIS_RESOURCES.map(r =>
@@ -173,14 +168,16 @@ function buildFooter() {
 
   return `
     <footer class="site-footer" role="contentinfo">
-      <div class="footer-inner">
+      <div class="footer-top">
         <div class="footer-brand">
           <span class="name">${FOOTER.name}</span>
           <span class="tagline">${FOOTER.tagline}</span>
           <p class="quote">${FOOTER.quote}</p>
           <a href="mailto:${FOOTER.email}" class="footer-email">✉ ${FOOTER.email}</a>
         </div>
-        ${cols}
+        <nav class="footer-nav-row" aria-label="Footer navigation">
+          ${navLinks}
+        </nav>
       </div>
       <div class="footer-bottom">
         <div class="footer-legal-row">
