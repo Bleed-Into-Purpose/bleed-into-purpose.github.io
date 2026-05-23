@@ -612,15 +612,27 @@ blockquote footer, blockquote cite {
 }
 .footer-brand .footer-email:hover { color: var(--primary); }
 
-/* Horizontal nav — all links in one row */
+/* Horizontal nav — all links in one centered row with separators */
 .footer-nav-row {
   display: flex; flex-wrap: wrap;
-  justify-content: center; gap: 8px 24px;
+  justify-content: center; align-items: center;
+  gap: 0;
 }
 .footer-nav-link {
-  font-size: .875rem; font-weight: 500;
+  font-family: var(--serif);
+  font-size: 1rem; font-weight: 400;
   color: var(--muted-fg); text-decoration: none;
-  transition: color .2s; padding: 4px 0;
+  transition: color .2s;
+  padding: 4px 14px;
+  position: relative;
+}
+/* Dot separator between links */
+.footer-nav-link + .footer-nav-link::before {
+  content: '·';
+  position: absolute; left: 0;
+  transform: translateX(-50%);
+  color: var(--border);
+  pointer-events: none;
 }
 .footer-nav-link:hover { color: var(--primary); }
 .footer-bottom {
