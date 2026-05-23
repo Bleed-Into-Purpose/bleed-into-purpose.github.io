@@ -635,3 +635,53 @@ blockquote footer, blockquote cite {
   .fade-in { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
 }
+
+/* ── FOOTER CRISIS GRID ──────────────────────────────────
+   Compact two-column grid for crisis hotlines in the footer.
+   Visually separated from the legal text above it.
+──────────────────────────────────────────────────────────── */
+.footer-legal-row { margin-bottom: 20px; }
+.footer-legal-row p { margin-bottom: 6px; }
+
+.footer-crisis-block {
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
+.footer-crisis-heading {
+  font-size: .65rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--primary) !important;
+  margin-bottom: 12px !important;
+}
+.footer-crisis-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+@media (min-width: 640px) {
+  .footer-crisis-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .footer-crisis-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.footer-crisis-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.footer-crisis-label {
+  font-size: .72rem;
+  font-weight: 500;
+  color: var(--fg);
+  line-height: 1.3;
+}
+.footer-crisis-number {
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  letter-spacing: .01em;
+}
+.footer-crisis-number:hover { color: var(--primary-h); text-decoration: underline; }
