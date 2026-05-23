@@ -163,10 +163,13 @@ function buildFooter() {
         </div>`;
   }).join('');
 
-  // Footer crisis line (compact, one per hotline)
+  // Crisis hotlines — two-column grid, compact
   const crisisLines = CRISIS_RESOURCES.map(r =>
-    `<p><strong>${r.label}:</strong> <a href="${r.href}">${r.number}</a> · Free &amp; confidential, 24/7</p>`
-  ).join('\n        ');
+    `<div class="footer-crisis-item">
+            <span class="footer-crisis-label">${r.label}</span>
+            <a href="${r.href}" class="footer-crisis-number">${r.number}</a>
+          </div>`
+  ).join('\n          ');
 
   return `
     <footer class="site-footer" role="contentinfo">
@@ -180,9 +183,16 @@ function buildFooter() {
         ${cols}
       </div>
       <div class="footer-bottom">
-        <p>${FOOTER.legal}</p>
-        <p>${FOOTER.disclaimer}</p>
-        ${crisisLines}
+        <div class="footer-legal-row">
+          <p>${FOOTER.legal}</p>
+          <p>${FOOTER.disclaimer}</p>
+        </div>
+        <div class="footer-crisis-block" role="note" aria-label="Crisis support resources">
+          <p class="footer-crisis-heading">Crisis Support Resources — Free &amp; Confidential, 24/7</p>
+          <div class="footer-crisis-grid">
+            ${crisisLines}
+          </div>
+        </div>
       </div>
     </footer>`;
 }
