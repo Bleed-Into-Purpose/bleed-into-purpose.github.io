@@ -298,3 +298,20 @@ if (faders.length) {
   }, { threshold: 0.1 });
   faders.forEach(f => obs.observe(f));
 }
+
+// ── GOOGLE ANALYTICS ─────────────────────────────────────
+// Injected here so all pages are tracked automatically,
+// including any new pages added in the future.
+// To update the tracking ID, change it in ONE place here.
+(function() {
+  const GA_ID = 'G-8S7X3LYRVM';
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+  document.head.insertBefore(script, document.head.firstChild);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', GA_ID);
+})();
