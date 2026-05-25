@@ -24,9 +24,11 @@ const NAV_CTA = { href: 'booking.html', label: 'Book a Talk' };
 
 // ── FOOTER CONTENT ────────────────────────────────────────
 // Edit name, quote, email, nav columns here
-// ── CONTACT EMAIL ─────────────────────────────────────────
-// Update this ONE line to change the email address across the entire site
+// ── CONTACT DETAILS ──────────────────────────────────────
+// Update these lines to change contact info across the entire site
 const CONTACT_EMAIL = 'renee@reneebulwin.com';
+const CONTACT_PHONE = '516-595-9789';
+const CONTACT_PHONE_HREF = 'tel:5165959789';
 
 const FOOTER = {
   name:    'Renée Bulwin',
@@ -174,6 +176,7 @@ function buildFooter() {
           <span class="tagline">${FOOTER.tagline}</span>
           <p class="quote">${FOOTER.quote}</p>
           <a href="mailto:${FOOTER.email}" class="footer-email">✉ ${FOOTER.email}</a>
+          <a href="${CONTACT_PHONE_HREF}" class="footer-phone">✆ ${CONTACT_PHONE}</a>
         </div>
         <nav class="footer-nav-row" aria-label="Footer navigation">
           ${navLinks}

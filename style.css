@@ -607,6 +607,8 @@ blockquote footer, blockquote cite {
   display: inline-flex; align-items: center; gap: 6px;
 }
 .footer-brand .footer-email:hover { color: var(--primary); }
+.footer-brand .footer-phone { font-size: .875rem; color: var(--fg); display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; }
+.footer-brand .footer-phone:hover { color: var(--primary); }
 
 /* Horizontal nav — all links in one centered row with separators */
 .footer-nav-row {
