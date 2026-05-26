@@ -72,8 +72,8 @@
           <span class="section-label">Send an Inquiry</span>
           <h2 id="form-heading">Let's Connect</h2>
           <div class="inquiry-form">
-            <p class="form-note">Fill out the form below and it will open a pre-filled email. Required fields are marked with an asterisk *.</p>
-            <form id="inquiry-form" novalidate aria-label="Speaking and program inquiry form">
+            <p class="form-note">Fill out the form below and I will be in touch. Required fields are marked with an asterisk *.</p>
+            <form id="inquiry-form" action="https://formspree.io/f/mgoqnnle" method="POST" novalidate aria-label="Speaking and program inquiry form">
               <div class="form-group"><label for="full-name">Full Name <span class="req" aria-hidden="true">*</span></label><input type="text" id="full-name" name="full-name" autocomplete="name" required aria-required="true" aria-describedby="full-name-error"><p id="full-name-error" class="field-error" role="alert">Please enter your full name.</p></div>
               <div class="form-group"><label for="organization">Organization <span class="req-note">(Optional)</span></label><input type="text" id="organization" name="organization" autocomplete="organization"></div>
               <div class="form-group"><label for="email">Email Address <span class="req" aria-hidden="true">*</span></label><input type="email" id="email" name="email" autocomplete="email" required aria-required="true" aria-describedby="email-error"><p id="email-error" class="field-error" role="alert">Please enter a valid email address.</p></div>
@@ -83,8 +83,12 @@
               <div class="form-group"><label for="location">Location or Virtual <span class="req-note">(Optional)</span></label><input type="text" id="location" name="location" placeholder="City, state or Virtual"></div>
               <div class="form-group"><label for="audience-size">Estimated Audience Size <span class="req-note">(Optional)</span></label><input type="number" id="audience-size" name="audience-size" min="1"></div>
               <div class="form-group"><label for="message">Message Details <span class="req" aria-hidden="true">*</span></label><textarea id="message" name="message" required aria-required="true" aria-describedby="message-error" placeholder="Please include details about your inquiry."></textarea><p id="message-error" class="field-error" role="alert">Please include a message with details about your inquiry.</p></div>
-              <button type="submit" class="btn-primary" style="width:100%;">Prepare Email</button>
+              <button type="submit" class="btn-primary" style="width:100%;">Send Inquiry</button>
             </form>
+            <div id="form-success" style="display:none;text-align:center;padding:32px 24px;">
+              <p style="font-family:var(--serif);font-size:1.4rem;font-style:italic;color:var(--fg);margin-bottom:12px;">Thank you for reaching out.</p>
+              <p style="font-size:.95rem;color:var(--muted-fg);">Renée will be in touch with you soon.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -92,5 +96,46 @@
     </main>
   </div>
   <script src="components.js"></script>
+  <script>
+    const form = document.getElementById('inquiry-form');
+    const success = document.getElementById('form-success');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Client-side validation
+      let valid = true;
+      [['full-name','full-name-error'],['email','email-error'],['inquiry-type','inquiry-type-error'],['message','message-error']].forEach(([id, eid]) => {
+        const el = document.getElementById(id), er = document.getElementById(eid);
+        if (!el.value.trim()) { el.setAttribute('aria-invalid','true'); er.classList.add('visible'); valid = false; }
+        else { el.removeAttribute('aria-invalid'); er.classList.remove('visible'); }
+      });
+      if (!valid) return;
+
+      const btn = form.querySelector('button[type="submit"]');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          success.style.display = 'block';
+        } else {
+          btn.textContent = 'Send Inquiry';
+          btn.disabled = false;
+          alert('Something went wrong. Please try again or email renee@reneebulwin.com directly.');
+        }
+      } catch {
+        btn.textContent = 'Send Inquiry';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again or email renee@reneebulwin.com directly.');
+      }
+    });
+  </script>
 </body>
 </html>
