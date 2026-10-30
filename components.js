@@ -169,7 +169,7 @@ function buildCrisisResources() {
       <div id="crisis-support" class="crisis-band" style="background:hsla(93,14%,38%,.06);border-top:1px solid hsla(93,14%,38%,.14);border-bottom:1px solid hsla(93,14%,38%,.14);padding:48px var(--px);" role="note" aria-label="Crisis support resources">
         <div class="container">
           <span class="section-label">Crisis Support</span>
-          <div style="display:flex;flex-direction:column;gap:28px;max-width:640px;">
+          <div class="crisis-grid">
             ${cards}
           </div>
         </div>

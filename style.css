@@ -164,17 +164,19 @@ header nav {
 .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Mobile nav overlay — full-screen, centred links */
+/* Mobile nav overlay — full-screen, links stacked just under the header.
+   Sits below the header (z 100) so the brand and close button stay visible. */
 .nav-menu {
   display: none; position: fixed; inset: 0;
-  background: var(--bg); z-index: 200;
-  flex-direction: column; align-items: center; justify-content: center;
-  gap: 32px; padding: 80px var(--px) 40px;
+  background: var(--bg); z-index: 90;
+  flex-direction: column; align-items: center; justify-content: flex-start;
+  gap: 4px; padding: 112px var(--px) 40px;
 }
 .nav-menu.open { display: flex; }
 .nav-menu a {
-  font-family: var(--serif); font-size: 2.2rem; font-weight: 400;
+  font-family: var(--serif); font-size: 1.75rem; font-weight: 400;
   color: var(--muted-fg); letter-spacing: -.01em; transition: color .2s;
+  padding: 6px 16px; min-height: 44px; display: inline-flex; align-items: center;
 }
 .nav-menu a:hover,
 .nav-menu a[aria-current="page"] { color: var(--primary); }
@@ -182,7 +184,7 @@ header nav {
   font-family: var(--sans); font-size: 1rem; font-weight: 500;
   background: var(--primary); color: #fff;
   padding: 16px 40px; border-radius: var(--r-full);
-  margin-top: 8px; display: inline-flex; align-items: center;
+  margin-top: 16px; display: inline-flex; align-items: center;
   transition: background .2s;
 }
 .nav-menu .btn-menu:hover { background: var(--primary-h); color: #fff; }
@@ -432,12 +434,15 @@ p:last-child { margin-bottom: 0; }
 /* ═══════════════════════════════════════════════════════════
    AUDIENCE LIST — speaking page
 ════════════════════════════════════════════════════════════ */
-.audience-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 20px; }
+/* Plain bulleted text, no boxes, so the items don't read as buttons */
+.audience-list {
+  list-style: none; margin-top: 20px;
+  display: grid; grid-template-columns: 1fr; gap: 10px 40px;
+}
+@media (min-width: 768px) { .audience-list { grid-template-columns: repeat(2, 1fr); max-width: 760px; } }
 .audience-list li {
   display: flex; align-items: center; gap: 12px;
-  font-size: .975rem; color: var(--muted-fg);
-  padding: 10px 14px;
-  background: var(--card); border: 1px solid var(--border); border-radius: var(--r-md);
+  font-size: 1.0625rem; color: var(--muted-fg); line-height: 1.6;
 }
 .audience-list li::before {
   content: ''; width: 6px; height: 6px; border-radius: 50%;
@@ -644,6 +649,11 @@ blockquote footer, blockquote cite {
   .fade-in { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
 }
+
+/* ── CRISIS SUPPORT — resources page, two columns from tablet up ── */
+.crisis-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 768px) { .crisis-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; } }
+.crisis-grid > * { min-width: 0; }
 
 /* ── FOOTER LEGAL ROW — copyright + disclaimer ── */
 .footer-legal-row p { margin-bottom: 6px; }
