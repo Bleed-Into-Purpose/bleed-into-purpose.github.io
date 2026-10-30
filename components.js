@@ -18,7 +18,6 @@ const NAV_LINKS = [
   { href: 'about.html',    label: 'About'     },
   { href: 'speaking.html', label: 'Speaking'  },
   { href: 'resources.html',label: 'Resources' },
-  { href: 'booking.html',  label: 'Booking'   },
 ];
 const NAV_CTA = { href: 'booking.html', label: 'Book a Talk' };
 
@@ -48,7 +47,6 @@ const FOOTER = {
       heading: 'Connect',
       links: [
         { href: 'resources.html', label: 'Resources' },
-        { href: 'booking.html',   label: 'Booking'   },
       ]
     }
   ],
