@@ -22,7 +22,7 @@ const NAV_LINKS = [
 const NAV_CTA = { href: 'booking.html', label: 'Book a Talk' };
 
 // ── FOOTER CONTENT ────────────────────────────────────────
-// Edit name, quote, email, nav columns here
+// Edit name, quote, email here (name and tagline also appear in the header)
 // ── CONTACT DETAILS ──────────────────────────────────────
 // Update these lines to change contact info across the entire site
 const CONTACT_EMAIL = 'renee@reneebulwin.com';
@@ -34,22 +34,6 @@ const FOOTER = {
   tagline: 'Bleed Into Purpose',
   quote:   '"Healing begins the moment the silence is broken."',
   email:   CONTACT_EMAIL,
-  cols: [
-    {
-      heading: 'Explore',
-      links: [
-        { href: 'index.html',    label: 'Home'      },
-        { href: 'about.html',    label: 'About'     },
-        { href: 'speaking.html', label: 'Speaking'  },
-      ]
-    },
-    {
-      heading: 'Connect',
-      links: [
-        { href: 'resources.html', label: 'Resources' },
-      ]
-    }
-  ],
   legal: `© ${new Date().getFullYear()} Renée Bulwin · Bleed Into Purpose. All rights reserved.`,
   disclaimer: `This content is for educational and wellness support purposes only.
     It is not a replacement for therapy, medical care, or crisis support.
@@ -59,7 +43,7 @@ const FOOTER = {
 };
 
 // ── CRISIS RESOURCES ──────────────────────────────────────
-// Edit hotline numbers, descriptions here — updates resources page + all footers
+// Edit hotline numbers, descriptions here — updates the resources page
 const CRISIS_RESOURCES = [
   {
     label:       '988 Suicide & Crisis Lifeline',
@@ -152,44 +136,20 @@ function buildHeader() {
 }
 
 function buildFooter() {
-  // All nav links from all cols merged into one flat list
-  const allLinks = FOOTER.cols.flatMap(col => col.links);
-  const navLinks = allLinks.map(l =>
-    `<a href="${l.href}" class="footer-nav-link">${l.label}</a>`
-  ).join('\n          ');
-
-  // Crisis hotlines — two-column grid, compact
-  const crisisLines = CRISIS_RESOURCES.map(r =>
-    `<div class="footer-crisis-item">
-            <span class="footer-crisis-label">${r.label}</span>
-            <a href="${r.href}" class="footer-crisis-number">${r.number}</a>
-          </div>`
-  ).join('\n          ');
-
+  // Page links live in the sticky header, so the footer carries contact details only
   return `
     <footer class="site-footer" role="contentinfo">
       <div class="footer-top">
         <div class="footer-brand">
-          <span class="name">${FOOTER.name}</span>
-          <span class="tagline">${FOOTER.tagline}</span>
           <p class="quote">${FOOTER.quote}</p>
           <a href="mailto:${FOOTER.email}" class="footer-email">✉ ${FOOTER.email}</a>
           <a href="${CONTACT_PHONE_HREF}" class="footer-phone">✆ ${CONTACT_PHONE}</a>
         </div>
-        <nav class="footer-nav-row" aria-label="Footer navigation">
-          ${navLinks}
-        </nav>
       </div>
       <div class="footer-bottom">
         <div class="footer-legal-row">
           <p>${FOOTER.legal}</p>
-          <p>${FOOTER.disclaimer}</p>
-        </div>
-        <div class="footer-crisis-block" role="note" aria-label="Crisis support resources">
-          <p class="footer-crisis-heading">Crisis Support Resources — Free &amp; Confidential, 24/7</p>
-          <div class="footer-crisis-grid">
-            ${crisisLines}
-          </div>
+          <p>${FOOTER.disclaimer} <a href="resources.html#crisis-support">More crisis support resources</a></p>
         </div>
       </div>
     </footer>`;
@@ -206,7 +166,7 @@ function buildCrisisResources() {
             </div>`).join('');
 
   return `
-      <div class="crisis-band" style="background:hsla(93,14%,38%,.06);border-top:1px solid hsla(93,14%,38%,.14);border-bottom:1px solid hsla(93,14%,38%,.14);padding:48px var(--px);" role="note" aria-label="Crisis support resources">
+      <div id="crisis-support" class="crisis-band" style="background:hsla(93,14%,38%,.06);border-top:1px solid hsla(93,14%,38%,.14);border-bottom:1px solid hsla(93,14%,38%,.14);padding:48px var(--px);" role="note" aria-label="Crisis support resources">
         <div class="container">
           <span class="section-label">Crisis Support</span>
           <div style="display:flex;flex-direction:column;gap:28px;max-width:640px;">
