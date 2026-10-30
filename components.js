@@ -100,16 +100,18 @@ const CRISIS_RESOURCES = [
    BUILD FUNCTIONS — no need to edit below this line
 ════════════════════════════════════════════════════════════ */
 
-// Detect current page for active nav state
-const currentPage = location.pathname.split('/').pop() || 'index.html';
+// Detect current page for active nav state ("/about" and "/about.html" both count)
+const lastSegment = location.pathname.split('/').pop() || 'index.html';
+const currentPage = lastSegment.includes('.') ? lastSegment : `${lastSegment}.html`;
+const currentAttr = href => (href === currentPage ? ' aria-current="page"' : '');
 
 function buildHeader() {
   const desktopLinks = NAV_LINKS.map(l =>
-    `<li><a href="${l.href}"${l.href === currentPage ? ' aria-current="page"' : ''}>${l.label}</a></li>`
+    `<li><a href="${l.href}"${currentAttr(l.href)}>${l.label}</a></li>`
   ).join('\n        ');
 
   const mobileLinks = NAV_LINKS.map(l =>
-    `<a href="${l.href}"${l.href === currentPage ? ' aria-current="page"' : ''}>${l.label}</a>`
+    `<a href="${l.href}"${currentAttr(l.href)}>${l.label}</a>`
   ).join('\n    ');
 
   return `
@@ -121,7 +123,7 @@ function buildHeader() {
       </a>
       <ul class="nav-links" role="list">
         ${desktopLinks}
-        <li><a href="${NAV_CTA.href}" class="btn-book">${NAV_CTA.label}</a></li>
+        <li><a href="${NAV_CTA.href}" class="btn-book"${currentAttr(NAV_CTA.href)}>${NAV_CTA.label}</a></li>
       </ul>
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open navigation menu">
         <span></span><span></span><span></span>
@@ -131,7 +133,7 @@ function buildHeader() {
 
   <nav id="nav-menu" class="nav-menu" aria-label="Site pages">
     ${mobileLinks}
-    <a href="${NAV_CTA.href}" class="btn-menu">${NAV_CTA.label}</a>
+    <a href="${NAV_CTA.href}" class="btn-menu"${currentAttr(NAV_CTA.href)}>${NAV_CTA.label}</a>
   </nav>`;
 }
 
