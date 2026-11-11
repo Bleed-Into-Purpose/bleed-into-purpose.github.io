@@ -308,7 +308,7 @@ p:last-child { margin-bottom: 0; }
   border: 1px solid var(--border);
 }
 .hero h1 { color: var(--fg); margin-bottom: 20px; }
-.hero p  { font-size: 1.1rem; color: hsla(93,10%,18%,.75); max-width: 580px; margin: 0 auto 36px; }
+.hero p  { font-size: 1.1rem; font-weight: 600; color: hsla(93,10%,18%,.85); max-width: 580px; margin: 0 auto 36px; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 8px; }
 
 /* ═══════════════════════════════════════════════════════════
@@ -507,6 +507,12 @@ blockquote footer, blockquote cite {
   margin: 0 auto;
 }
 .green-strip blockquote p { color: var(--fg); font-size: inherit; }
+/* Home intro quote — centred, full-width box below the photo and paragraphs */
+.intro-quote {
+  max-width: 960px;
+  margin: 56px auto 0;
+  text-align: center;
+}
 /* Blockquote inside image-section text column — smaller, still has green border */
 .image-section-text blockquote {
   font-size: 1.1rem;
