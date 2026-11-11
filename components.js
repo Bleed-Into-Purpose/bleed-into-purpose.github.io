@@ -25,7 +25,7 @@ const NAV_CTA = { href: 'booking.html', label: 'Book a Talk' };
 // Edit name, quote, email here (name and tagline also appear in the header)
 // ── CONTACT DETAILS ──────────────────────────────────────
 // Update these lines to change contact info across the entire site
-const CONTACT_EMAIL = 'renee@reneebulwin.com';
+const CONTACT_EMAIL = 'support@reneebulwin.com';
 const CONTACT_PHONE = '516-595-9789';
 const CONTACT_PHONE_HREF = 'tel:5165959789';
 
@@ -221,7 +221,7 @@ if (ctaPlaceholder) {
   const heading = ctaPlaceholder.dataset.heading || 'Ready to explore a path to healing together?';
   const body    = ctaPlaceholder.dataset.body    || 'Whether you are looking to book a speaking engagement or simply want to connect, I would love to hear from you.';
   const bg      = ctaPlaceholder.dataset.bg      || 'cream-bg';
-  const buttons = JSON.parse(ctaPlaceholder.dataset.buttons || '[{"href":"booking.html","label":"Get in Touch","style":"primary"},{"href":"mailto:renee@reneebulwin.com","label":"Email Directly","style":"outline"}]');
+  const buttons = JSON.parse(ctaPlaceholder.dataset.buttons || '[{"href":"booking.html","label":"Get in Touch","style":"primary"},{"href":"mailto:support@reneebulwin.com","label":"Email Directly","style":"outline"}]');
   ctaPlaceholder.outerHTML = buildCTA({ heading, body, buttons, bg });
 }
 
