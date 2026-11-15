@@ -153,6 +153,7 @@ function buildFooter() {
           <p>${FOOTER.legal}</p>
           <p>${FOOTER.disclaimer} <a href="resources.html#crisis-support">More crisis support resources</a></p>
         </div>
+        <p class="footer-credit">Site developed by <a href="https://daricecorey.com" target="_blank" rel="noopener">Darice Corey, LLC</a></p>
       </div>
     </footer>`;
 }
