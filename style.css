@@ -507,6 +507,26 @@ blockquote footer, blockquote cite {
   margin: 0 auto;
 }
 .green-strip blockquote p { color: var(--fg); font-size: inherit; }
+/* About "Bleed Into Purpose" section — text on the left, photo on the right,
+   with the closing paragraph under the photo, lined up with the bottom of the text.
+   On phones it stacks: photo, text, closing paragraph. */
+.image-section-inner.bip-grid {
+  display: grid; grid-template-columns: 1fr; gap: 48px 0;
+  grid-template-areas: "img" "text" "extra";
+}
+.bip-grid > .image-section-img  { grid-area: img; }
+.bip-grid > .image-section-text { grid-area: text; }
+.bip-grid > .bip-extra { grid-area: extra; margin-top: -28px; }
+.bip-extra p { font-size: 1.05rem; margin-bottom: 0; }
+@media (min-width: 1024px) {
+  .image-section-inner.bip-grid {
+    grid-template-columns: 1fr 1fr; gap: 24px 80px;
+    grid-template-areas: "text img" "text extra";
+  }
+  .bip-grid > .image-section-img, .bip-grid > .image-section-text { width: auto; }
+  .bip-grid > .bip-extra { margin-top: 0; align-self: end; }
+}
+
 /* Home intro quote — centred, full-width box below the photo and paragraphs */
 .intro-quote {
   max-width: 960px;
