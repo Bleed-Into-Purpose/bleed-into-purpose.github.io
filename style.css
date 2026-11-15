@@ -709,6 +709,7 @@ blockquote footer, blockquote cite {
 
 /* Skip-to-content scroll target — clears the fixed nav bar */
 #main-content { scroll-margin-top: 88px; }
+
 /* Developer credit */
 .footer-bottom .footer-credit { font-size: .6rem; color: var(--muted-fg); letter-spacing: .04em; opacity: .7; }
 .footer-bottom .footer-credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
