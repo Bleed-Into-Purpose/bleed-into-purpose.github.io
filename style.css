@@ -527,11 +527,11 @@ blockquote footer, blockquote cite {
   .bip-grid > .bip-extra { margin-top: 0; align-self: end; }
 }
 
-/* About page portrait — smaller than the standard split-layout photo */
-.about-portrait > img { max-width: 300px; margin: 0 auto; }
+/* About page portrait — smaller than the standard split-layout photo, centred in its column */
+.about-portrait > img { max-width: 240px; margin: 0 auto; }
 @media (min-width: 1024px) {
-  /* Photo takes about a third of the row, so the story text gets the rest */
-  .image-section-img.about-portrait { width: 32%; }
+  /* Photo takes about a quarter of the row, so the story text gets the rest */
+  .image-section-img.about-portrait { width: 25%; }
   .about-portrait ~ .image-section-text { width: auto; flex: 1; }
 }
 
