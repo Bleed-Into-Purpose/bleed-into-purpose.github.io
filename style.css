@@ -527,6 +527,9 @@ blockquote footer, blockquote cite {
   .bip-grid > .bip-extra { margin-top: 0; align-self: end; }
 }
 
+/* About page portrait — smaller than the standard split-layout photo, centred in its column */
+.about-portrait > img { max-width: 380px; margin: 0 auto; }
+
 /* Home intro quote — centred, full-width box below the photo and paragraphs */
 .intro-quote {
   max-width: 960px;
