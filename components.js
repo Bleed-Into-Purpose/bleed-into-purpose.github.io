@@ -18,6 +18,7 @@ const NAV_LINKS = [
   { href: 'about.html',    label: 'About'     },
   { href: 'speaking.html', label: 'Speaking'  },
   { href: 'resources.html',label: 'Resources' },
+  { href: 'book.html',     label: 'Buy Her Book' },
 ];
 const NAV_CTA = { href: 'booking.html', label: 'Book a Talk' };
 
